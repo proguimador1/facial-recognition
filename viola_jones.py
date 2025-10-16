@@ -21,6 +21,8 @@ while True:
     for (x,y,w,h) in faces:
         cv2.rectangle(frame, (x, y), (x + w, y + h),(0,255,0), 2)
         faceROI = frame[y:y+h,x:x+w]
+        gray_faceROI = cv2.cvtColor(faceROI, cv2.COLOR_BGR2GRAY)
+        cv2.imwrite("new_image.png", gray_faceROI)
         #eyes = eyeCascade.detectMultiScale(faceROI)
         #for (x2, y2, w2, h2) in eyes:
             #eye_center = (x + x2 + w2 // 2, y + y2 + h2 // 2)
